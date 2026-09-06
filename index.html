@@ -126,6 +126,15 @@
       .mobile-bar a:first-child{background:var(--navy);color:white}
       .mobile-bar a:last-child{color:var(--navy)}
     }
+  
+    .copy-toast{
+      position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+      background:#0b1f3a;color:#fff;padding:12px 18px;border-radius:10px;
+      font-weight:800;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.2);
+      opacity:0;pointer-events:none;transition:.2s;z-index:200
+    }
+    .copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
   </style>
 </head>
 <body>
@@ -280,8 +289,8 @@
         <p>작업 위치와 현장 상황을 알려주시면 상담에 도움이 됩니다.</p>
       </div>
       <div class="contact-actions">
-        <a class="btn btn-primary" href="tel:01077672317">전화 문의</a>
-        <a class="btn btn-outline" href="sms:01077672317">문자 문의</a>
+        <a class="btn btn-primary smart-contact" data-action="tel" href="tel:01077672317">전화 문의</a>
+        <a class="btn btn-outline smart-contact" data-action="sms" href="sms:01077672317">문자 문의</a>
       </div>
     </div>
   </section>
@@ -298,9 +307,11 @@
 </footer>
 
 <div class="mobile-bar">
-  <a href="tel:01077672317">전화 문의</a>
-  <a href="sms:01077672317">문자 문의</a>
+  <a class="smart-contact" data-action="tel" href="tel:01077672317">전화 문의</a>
+  <a class="smart-contact" data-action="sms" href="sms:01077672317">문자 문의</a>
 </div>
+
+<div class="copy-toast" id="copy-toast" role="status" aria-live="polite">010-7767-2317 번호가 복사되었습니다.</div>
 
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lightbox-close" type="button" aria-label="닫기">×</button>
@@ -308,6 +319,40 @@
 </div>
 
 <script>
+
+  const PHONE_NUMBER = '010-7767-2317';
+  const isMobileDevice = () =>
+    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ||
+    (navigator.maxTouchPoints > 1 && window.innerWidth < 1024);
+
+  async function copyPhoneNumber() {
+    try {
+      await navigator.clipboard.writeText(PHONE_NUMBER);
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = PHONE_NUMBER;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+    }
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('show');
+    clearTimeout(window.__copyToastTimer);
+    window.__copyToastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+
+  document.querySelectorAll('.smart-contact').forEach(link => {
+    link.addEventListener('click', async (e) => {
+      if (!isMobileDevice()) {
+        e.preventDefault();
+        await copyPhoneNumber();
+      }
+    });
+  });
+
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   document.querySelectorAll('.gallery-item').forEach(btn => {
