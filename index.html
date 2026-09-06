@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>무등ENG | 시스템비계 · 동바리 · 아시바 · 가설재</title>
+  <meta name="description" content="무등ENG - 시스템비계, 동바리, 아시바, 가설재 시공 및 현장 상담. 광주광역시 북구 군왕로8번길 3. 010-7767-2317">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="무등ENG">
+  <meta property="og:description" content="시스템비계 · 동바리 · 아시바 · 가설재">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --navy:#07356f;
+      --navy2:#0c4a94;
+      --green:#0d7a45;
+      --text:#142033;
+      --muted:#667085;
+      --line:#e7ebf0;
+      --soft:#f6f8fb;
+      --white:#fff;
+      --shadow:0 14px 40px rgba(12,34,64,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,"Noto Sans KR","Malgun Gothic",sans-serif;color:var(--text);background:#fff;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand img{height:58px;width:auto}
+    .menu{display:flex;gap:30px;align-items:center;font-weight:700;font-size:15px}
+    .menu a:hover{color:var(--navy2)}
+    .nav-call{padding:12px 18px;border-radius:999px;background:var(--navy);color:white}
+
+    .hero{min-height:720px;display:grid;align-items:center;position:relative;overflow:hidden;background:#eef3f7}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,25,56,.88) 0%,rgba(3,25,56,.69) 42%,rgba(3,25,56,.18) 72%,rgba(3,25,56,.06) 100%),url('images/img_0277.jpg') center/cover no-repeat}
+    .hero-inner{position:relative;color:white;padding:88px 0;max-width:760px}
+    .eyebrow{font-weight:800;letter-spacing:.14em;font-size:13px;color:#b8d4ff}
+    h1{font-size:clamp(42px,6vw,76px);line-height:1.08;margin:18px 0 20px;letter-spacing:-.04em}
+    .hero p{font-size:20px;color:#e7eef8;margin:0 0 32px;max-width:650px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:10px;font-weight:800;border:1px solid transparent}
+    .btn-primary{background:white;color:var(--navy)}
+    .btn-outline{border-color:rgba(255,255,255,.7);color:white;background:rgba(255,255,255,.08)}
+
+    section{padding:96px 0}
+    .section-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:40px}
+    .section-head h2{font-size:38px;margin:0;letter-spacing:-.03em}
+    .section-head p{max-width:630px;margin:0;color:var(--muted)}
+    .kicker{color:var(--green);font-weight:800;font-size:13px;letter-spacing:.12em;margin-bottom:8px}
+
+    .services{background:var(--soft)}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .service-card{background:white;border:1px solid var(--line);padding:28px;border-radius:16px;min-height:210px;box-shadow:0 8px 25px rgba(30,50,80,.04)}
+    .service-no{font-size:13px;color:var(--green);font-weight:900}
+    .service-card h3{font-size:23px;margin:12px 0 10px}
+    .service-card p{color:var(--muted);margin:0}
+
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+    .about-image{border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .about-image img{width:100%;height:520px;object-fit:cover}
+    .about-copy h2{font-size:42px;line-height:1.2;margin:10px 0 20px;letter-spacing:-.03em}
+    .about-copy p{color:var(--muted);font-size:17px}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+    .fact{border:1px solid var(--line);padding:18px;border-radius:12px}
+    .fact b{display:block;color:var(--navy);margin-bottom:4px}
+
+    .gallery-section{background:#fff}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .gallery-item{border:0;padding:0;background:none;cursor:pointer;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:.25s transform}
+    .gallery-item:hover img{transform:scale(1.035)}
+
+    .contact{background:linear-gradient(135deg,var(--navy),#0a4d97);color:white}
+    .contact-box{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    .contact h2{font-size:42px;margin:0 0 10px}
+    .contact p{margin:0;color:#dce9fb}
+    .contact-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+
+    footer{padding:34px 0;background:#071b35;color:#cbd5e1}
+    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    .footer-logo{font-weight:900;color:white;font-size:22px}
+    .footer-info{font-size:14px;text-align:right}
+
+    .mobile-bar{display:none}
+
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:28px}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:94vw;max-height:88vh;object-fit:contain}
+    .lightbox-close{position:absolute;right:24px;top:18px;background:none;border:0;color:white;font-size:40px;cursor:pointer}
+
+    @media (max-width:900px){
+      .menu a:not(.nav-call){display:none}
+      .hero{min-height:620px}
+      .service-grid{grid-template-columns:1fr 1fr}
+      .about-grid{grid-template-columns:1fr}
+      .about-image img{height:420px}
+      .gallery-grid{grid-template-columns:1fr 1fr}
+      .contact-box{grid-template-columns:1fr}
+      .contact-actions{justify-content:flex-start}
+    }
+    @media (max-width:600px){
+      .wrap{width:min(100% - 28px,1180px)}
+      .nav{height:72px}
+      .brand img{height:44px}
+      .nav-call{display:none}
+      .hero{min-height:570px}
+      .hero-inner{padding:66px 0 86px}
+      .hero p{font-size:17px}
+      section{padding:72px 0}
+      .section-head{display:block}
+      .section-head h2,.about-copy h2,.contact h2{font-size:32px}
+      .section-head p{margin-top:12px}
+      .service-grid{grid-template-columns:1fr}
+      .about-image img{height:320px}
+      .gallery-grid{grid-template-columns:1fr 1fr;gap:8px}
+      .facts{grid-template-columns:1fr}
+      .footer-grid{display:block}
+      .footer-info{text-align:left;margin-top:12px}
+      body{padding-bottom:68px}
+      .mobile-bar{position:fixed;display:grid;grid-template-columns:1fr 1fr;left:0;right:0;bottom:0;z-index:60;background:white;border-top:1px solid var(--line)}
+      .mobile-bar a{height:62px;display:flex;align-items:center;justify-content:center;font-weight:900}
+      .mobile-bar a:first-child{background:var(--navy);color:white}
+      .mobile-bar a:last-child{color:var(--navy)}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="무등ENG 홈">
+      <img src="images/logo.png" alt="무등ENG 로고">
+    </a>
+    <nav class="menu" aria-label="주요 메뉴">
+      <a href="#about">회사소개</a>
+      <a href="#services">사업분야</a>
+      <a href="#portfolio">시공사례</a>
+      <a href="#contact">문의하기</a>
+      <a class="nav-call" href="tel:01077672317">010-7767-2317</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">MUDEUNG ENGINEERING</div>
+      <h1>현장을 세우는 기술,<br>신뢰를 쌓는 시공</h1>
+      <p>무등ENG는 시스템비계, 동바리, 아시바 및 각종 가설재 시공을 중심으로 현장 여건에 맞춘 작업을 제공합니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:01077672317">전화 상담 010-7767-2317</a>
+        <a class="btn btn-outline" href="#portfolio">시공사례 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">BUSINESS</div>
+          <h2>주요 사업분야</h2>
+        </div>
+        <p>현장 구조와 작업 목적에 맞춰 비계 및 가설 구조물을 설치하고, 필요한 작업 동선과 공간을 확보합니다.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><div class="service-no">01</div><h3>시스템비계</h3><p>건축물 외부 및 내부 작업을 위한 시스템비계 설치·해체.</p></article>
+        <article class="service-card"><div class="service-no">02</div><h3>동바리</h3><p>현장 조건에 맞춘 동바리 및 지지 구조 설치 작업.</p></article>
+        <article class="service-card"><div class="service-no">03</div><h3>아시바</h3><p>보수·도장·설비 등 작업 목적에 맞는 작업발판 및 비계 설치.</p></article>
+        <article class="service-card"><div class="service-no">04</div><h3>가설재</h3><p>현장에 필요한 다양한 가설 구조와 작업 공간 구성.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-image">
+        <img src="images/img_0288.jpg" alt="무등ENG 비계 시공 현장">
+      </div>
+      <div class="about-copy">
+        <div class="kicker">ABOUT MUDEUNG ENG</div>
+        <h2>현장에 맞는 구조,<br>작업에 맞는 시공</h2>
+        <p>무등ENG는 다양한 건축 및 보수 현장에서 필요한 비계·가설 구조를 설치합니다. 실내, 외부, 지붕, 건물 주변 등 현장 형태에 맞춰 작업 공간을 구성합니다.</p>
+        <div class="facts">
+          <div class="fact"><b>대표 문의</b>010-7767-2317</div>
+          <div class="fact"><b>주소</b>광주광역시 북구 군왕로8번길 3</div>
+          <div class="fact"><b>주요업무</b>시스템비계 · 동바리</div>
+          <div class="fact"><b>기타업무</b>아시바 · 가설재</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="gallery-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">PORTFOLIO</div>
+          <h2>시공사례</h2>
+        </div>
+        <p>무등ENG의 실제 현장 사진입니다. 사진을 누르면 크게 볼 수 있습니다.</p>
+      </div>
+      <div class="gallery-grid">
+        
+    <button class="gallery-item" type="button" data-src="images/img_0274.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0274.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0275.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0275.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0276.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0276.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0277.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0277.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0278.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0278.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0279.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0279.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0280.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0280.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0281.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0281.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0282.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0282.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0283.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0283.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0284.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0284.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0285.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0285.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0286.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0286.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0287.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0287.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0288.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0288.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+
+    <button class="gallery-item" type="button" data-src="images/img_0289.jpg" aria-label="시공사례 사진 확대">
+      <img src="images/img_0289.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
+    </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap contact-box">
+      <div>
+        <div class="kicker" style="color:#b8d4ff">CONTACT</div>
+        <h2>현장 상담이 필요하신가요?</h2>
+        <p>작업 위치와 현장 상황을 알려주시면 상담에 도움이 됩니다.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="tel:01077672317">전화 문의</a>
+        <a class="btn btn-outline" href="sms:01077672317">문자 문의</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-logo">무등ENG</div>
+    <div class="footer-info">
+      시스템비계 · 동바리 · 아시바 · 가설재<br>
+      010-7767-2317 · 광주광역시 북구 군왕로8번길 3
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a href="tel:01077672317">전화 문의</a>
+  <a href="sms:01077672317">문자 문의</a>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+  <img id="lightbox-img" alt="시공사례 확대 사진">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.gallery-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      lightboxImg.src = btn.dataset.src;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+    });
+  });
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden','true');
+    lightboxImg.src = '';
+  }
+  document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
