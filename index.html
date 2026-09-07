@@ -44,6 +44,48 @@
     "가설재"
   ]
 }
+
+  const consultForm = document.getElementById('consult-form');
+  const consultResult = document.getElementById('consult-result');
+
+  consultForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('consult-name').value.trim();
+    const phone = document.getElementById('consult-phone').value.trim();
+    const location = document.getElementById('consult-location').value.trim();
+    const type = document.getElementById('consult-type').value;
+    const message = document.getElementById('consult-message').value.trim();
+
+    const consultText = `[무등ENG 상담신청]
+이름/업체명: ${name}
+연락처: ${phone}
+현장 지역: ${location || '미입력'}
+작업 종류: ${type}
+작업 내용: ${message || '미입력'}`;
+
+    if (isMobileDevice()) {
+      window.location.href = 'sms:01077672317?body=' + encodeURIComponent(consultText);
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(consultText);
+    } catch (err) {
+      const ta = document.createElement('textarea');
+      ta.value = consultText;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+    }
+
+    consultResult.textContent = '상담 내용이 복사되었습니다. 010-7767-2317로 문자 또는 전화 상담해 주세요.';
+    consultResult.classList.add('show');
+  });
+
 </script>
   <style>
     :root {
@@ -114,6 +156,21 @@
     .gallery-info h3{font-size:17px;line-height:1.4;margin:0 0 6px;color:var(--text)}
     .gallery-info p{font-size:14px;line-height:1.55;margin:0;color:var(--muted)}
 
+    .consult{background:var(--soft)}
+    .consult-box{max-width:860px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+    .consult-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field.full{grid-column:1/-1}
+    .field label{font-weight:800;font-size:14px}
+    .field input,.field select,.field textarea{width:100%;border:1px solid #d7dde5;border-radius:10px;padding:13px 14px;font:inherit;color:var(--text);background:#fff;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy2);box-shadow:0 0 0 3px rgba(12,74,148,.10)}
+    .field textarea{min-height:130px;resize:vertical}
+    .consult-submit{width:100%;margin-top:20px;border:0;border-radius:11px;min-height:56px;background:var(--navy);color:#fff;font-size:17px;font-weight:900;cursor:pointer}
+    .consult-submit:hover{background:var(--navy2)}
+    .consult-note{margin:12px 0 0;color:var(--muted);font-size:13px;text-align:center}
+    .consult-result{display:none;margin-top:16px;padding:14px 16px;border-radius:10px;background:#eef6ff;color:var(--navy);font-weight:800}
+    .consult-result.show{display:block}
+
     .contact{background:linear-gradient(135deg,var(--navy),#0a4d97);color:white}
     .contact-box{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
     .contact h2{font-size:42px;margin:0 0 10px}
@@ -155,6 +212,9 @@
       .section-head h2,.about-copy h2,.contact h2{font-size:32px}
       .section-head p{margin-top:12px}
       .service-grid{grid-template-columns:1fr}
+      .consult-box{padding:22px 18px}
+      .consult-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
       .about-image img{height:320px}
       .gallery-grid{grid-template-columns:1fr;gap:16px}
       .facts{grid-template-columns:1fr}
@@ -187,6 +247,7 @@
       <a href="#about">회사소개</a>
       <a href="#services">사업분야</a>
       <a href="#portfolio">시공사례</a>
+      <a href="#consult">상담신청</a>
       <a href="#contact">문의하기</a>
       <a class="nav-call smart-contact" href="tel:01077672317">010-7767-2317</a>
     </nav>
@@ -578,6 +639,53 @@
           </div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="consult" class="consult">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">CONSULTATION</div>
+          <h2>현장 상담 신청</h2>
+        </div>
+        <p>현장 정보를 남겨주시면 상담 내용을 간편하게 정리할 수 있습니다.</p>
+      </div>
+
+      <form class="consult-box" id="consult-form">
+        <div class="consult-grid">
+          <div class="field">
+            <label for="consult-name">이름 / 업체명</label>
+            <input id="consult-name" name="name" type="text" placeholder="예: 홍길동 / OO건설" required>
+          </div>
+          <div class="field">
+            <label for="consult-phone">연락처</label>
+            <input id="consult-phone" name="phone" type="tel" inputmode="tel" placeholder="예: 010-1234-5678" required>
+          </div>
+          <div class="field">
+            <label for="consult-location">현장 지역</label>
+            <input id="consult-location" name="location" type="text" placeholder="예: 광주 북구">
+          </div>
+          <div class="field">
+            <label for="consult-type">작업 종류</label>
+            <select id="consult-type" name="type" required>
+              <option value="">선택해 주세요</option>
+              <option>시스템비계</option>
+              <option>동바리</option>
+              <option>아시바</option>
+              <option>가설재</option>
+              <option>기타</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="consult-message">작업 내용</label>
+            <textarea id="consult-message" name="message" placeholder="현장 규모, 작업 내용, 필요한 일정 등을 적어주세요."></textarea>
+          </div>
+        </div>
+        <button class="consult-submit" type="submit">상담 신청하기</button>
+        <p class="consult-note">모바일에서는 문자 작성 화면이 열리고, PC에서는 상담 내용이 자동으로 복사됩니다.</p>
+        <div class="consult-result" id="consult-result" role="status" aria-live="polite"></div>
+      </form>
     </div>
   </section>
 
