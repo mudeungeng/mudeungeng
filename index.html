@@ -48,7 +48,21 @@
   const consultForm = document.getElementById('consult-form');
   const consultResult = document.getElementById('consult-result');
 
-  consultForm.addEventListener('submit', async (e) => {
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    const ok = document.execCommand('copy');
+    ta.remove();
+    return ok;
+  }
+
+  consultForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const name = document.getElementById('consult-name').value.trim();
@@ -57,7 +71,14 @@
     const type = document.getElementById('consult-type').value;
     const message = document.getElementById('consult-message').value.trim();
 
-    const consultText = `[무등ENG 상담신청]
+    if (!name || !phone || !type) {
+      consultResult.textContent = '이름/업체명, 연락처, 작업 종류를 입력해 주세요.';
+      consultResult.classList.add('show');
+      return;
+    }
+
+    const consultText =
+`[무등ENG 상담신청]
 이름/업체명: ${name}
 연락처: ${phone}
 현장 지역: ${location || '미입력'}
@@ -69,21 +90,31 @@
       return;
     }
 
+    let copied = false;
     try {
-      await navigator.clipboard.writeText(consultText);
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(consultText);
+        copied = true;
+      } else {
+        copied = fallbackCopy(consultText);
+      }
     } catch (err) {
-      const ta = document.createElement('textarea');
-      ta.value = consultText;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      ta.remove();
+      try { copied = fallbackCopy(consultText); } catch (_) {}
     }
 
-    consultResult.textContent = '상담 내용이 복사되었습니다. 010-7767-2317로 문자 또는 전화 상담해 주세요.';
+    if (copied) {
+      consultResult.innerHTML =
+        '<strong>상담 내용이 복사되었습니다.</strong><br>' +
+        '010-7767-2317로 문자 전송하거나 전화 상담해 주세요.';
+    } else {
+      consultResult.innerHTML =
+        '<strong>상담 내용이 작성되었습니다.</strong><br>' +
+        '<textarea readonly style="width:100%;min-height:150px;margin-top:10px;padding:10px">' +
+        consultText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') +
+        '</textarea><br>내용을 복사해 010-7767-2317로 보내주세요.';
+    }
     consultResult.classList.add('show');
+    consultResult.scrollIntoView({behavior:'smooth', block:'nearest'});
   });
 
 </script>
