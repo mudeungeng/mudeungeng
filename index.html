@@ -105,10 +105,14 @@
     .fact b{display:block;color:var(--navy);margin-bottom:4px}
 
     .gallery-section{background:#fff}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .gallery-item{border:0;padding:0;background:none;cursor:pointer;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .work-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(30,50,80,.06)}
+    .gallery-item{display:block;width:100%;border:0;padding:0;background:none;cursor:pointer;overflow:hidden;aspect-ratio:4/3;border-radius:0}
     .gallery-item img{width:100%;height:100%;object-fit:cover;transition:.25s transform}
     .gallery-item:hover img{transform:scale(1.035)}
+    .gallery-info{padding:15px 16px 17px}
+    .gallery-info h3{font-size:17px;line-height:1.4;margin:0 0 6px;color:var(--text)}
+    .gallery-info p{font-size:14px;line-height:1.55;margin:0;color:var(--muted)}
 
     .contact{background:linear-gradient(135deg,var(--navy),#0a4d97);color:white}
     .contact-box{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
@@ -152,7 +156,7 @@
       .section-head p{margin-top:12px}
       .service-grid{grid-template-columns:1fr}
       .about-image img{height:320px}
-      .gallery-grid{grid-template-columns:1fr 1fr;gap:8px}
+      .gallery-grid{grid-template-columns:1fr;gap:16px}
       .facts{grid-template-columns:1fr}
       .footer-grid{display:block}
       .footer-info{text-align:left;margin-top:12px}
@@ -184,7 +188,7 @@
       <a href="#services">사업분야</a>
       <a href="#portfolio">시공사례</a>
       <a href="#contact">문의하기</a>
-      <a class="nav-call" href="tel:01077672317">010-7767-2317</a>
+      <a class="nav-call smart-contact" href="tel:01077672317">010-7767-2317</a>
     </nav>
   </div>
 </header>
@@ -196,7 +200,7 @@
       <h1>현장을 세우는 기술,<br>신뢰를 쌓는 시공</h1>
      <p>무등ENG(무등이엔지)는 광주·전남 지역의 시스템비계, 동바리, 아시바 및 각종 가설재 시공 전문 업체로, 현장 여건에 맞는 안전하고 신속한 비계 시공을 제공합니다.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="tel:01077672317">전화 상담 010-7767-2317</a>
+        <a class="btn btn-primary smart-contact" href="tel:01077672317">전화 상담 010-7767-2317</a>
         <a class="btn btn-outline" href="#portfolio">시공사례 보기</a>
       </div>
     </div>
@@ -249,76 +253,330 @@
         <p>무등ENG의 실제 현장 사진입니다. 사진을 누르면 크게 볼 수 있습니다.</p>
       </div>
       <div class="gallery-grid">
-        
-    <button class="gallery-item" type="button" data-src="images/img_0274.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0274.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0275.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0275.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0276.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0276.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0277.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0277.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0278.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0278.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0279.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0279.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0280.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0280.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0281.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0281.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0282.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0282.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0283.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0283.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0284.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0284.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0285.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0285.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0286.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0286.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0287.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0287.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0288.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0288.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-    <button class="gallery-item" type="button" data-src="images/img_0289.jpg" aria-label="시공사례 사진 확대">
-      <img src="images/img_0289.jpg" alt="무등ENG 비계 및 가설재 시공 현장" loading="lazy">
-    </button>
-
-  <div style="padding:14px 16px">
-    <h3 style="margin:0 0 5px;font-size:17px">건물 외벽 시스템비계</h3>
-    <p style="margin:0;color:#667085;font-size:14px">외부 보수 작업을 위한 시스템비계 및 작업발판 구성</p>
-  </div>
-</article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0274.jpg" aria-label="한옥 지붕 보수 비계 사진 확대">
+            <img src="images/img_0274.jpg" alt="무등ENG 한옥 지붕 보수 비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>한옥 지붕 보수 비계</h3>
+            <p>한옥 지붕 보수 작업을 위한 비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0275.jpg" aria-label="지붕 작업 비계 사진 확대">
+            <img src="images/img_0275.jpg" alt="무등ENG 지붕 작업 비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>지붕 작업 비계</h3>
+            <p>지붕 보수 및 작업을 위한 비계 구성</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0276.jpg" aria-label="전통 건축물 비계 시공 사진 확대">
+            <img src="images/img_0276.jpg" alt="무등ENG 전통 건축물 비계 시공" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>전통 건축물 비계 시공</h3>
+            <p>전통 건축물 외부 작업을 위한 비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0277.jpg" aria-label="야외 가설 구조물 사진 확대">
+            <img src="images/img_0277.jpg" alt="무등ENG 야외 가설 구조물" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>야외 가설 구조물</h3>
+            <p>야외 작업 공간 확보를 위한 가설 구조물 시공</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0278.jpg" aria-label="야외 작업발판 구성 사진 확대">
+            <img src="images/img_0278.jpg" alt="무등ENG 야외 작업발판 구성" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>야외 작업발판 구성</h3>
+            <p>외부 작업을 위한 작업발판 및 비계 구성</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0279.jpg" aria-label="가설 구조물 시공 사진 확대">
+            <img src="images/img_0279.jpg" alt="무등ENG 가설 구조물 시공" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>가설 구조물 시공</h3>
+            <p>현장 여건에 맞춘 가설 구조물 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0280.jpg" aria-label="건축물 외부 비계 작업 사진 확대">
+            <img src="images/img_0280.jpg" alt="무등ENG 건축물 외부 비계 작업" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>건축물 외부 비계 작업</h3>
+            <p>건축물 외부 작업을 위한 비계 시공</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0281.jpg" aria-label="출입구 비계 설치 사진 확대">
+            <img src="images/img_0281.jpg" alt="무등ENG 출입구 비계 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>출입구 비계 설치</h3>
+            <p>출입구 주변 작업을 위한 비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0282.jpg" aria-label="가설 울타리 작업 사진 확대">
+            <img src="images/img_0282.jpg" alt="무등ENG 가설 울타리 작업" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>가설 울타리 작업</h3>
+            <p>현장 보호를 위한 가설 울타리 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0283.jpg" aria-label="가설 외벽 설치 사진 확대">
+            <img src="images/img_0283.jpg" alt="무등ENG 가설 외벽 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>가설 외벽 설치</h3>
+            <p>외부 작업 구간 보호를 위한 가설 구조 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0284.jpg" aria-label="특수 현장 가설 작업 사진 확대">
+            <img src="images/img_0284.jpg" alt="무등ENG 특수 현장 가설 작업" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>특수 현장 가설 작업</h3>
+            <p>현장 형태에 맞춘 특수 가설 구조물 시공</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0285.jpg" aria-label="야외 구조 비계 사진 확대">
+            <img src="images/img_0285.jpg" alt="무등ENG 야외 구조 비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>야외 구조 비계</h3>
+            <p>야외 구조물 작업을 위한 비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0286.jpg" aria-label="실내 무대 비계 설치 사진 확대">
+            <img src="images/img_0286.jpg" alt="무등ENG 실내 무대 비계 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>실내 무대 비계 설치</h3>
+            <p>실내 무대 상부 작업을 위한 비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0287.jpg" aria-label="실내 아시바 사진 확대">
+            <img src="images/img_0287.jpg" alt="무등ENG 실내 아시바" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>실내 아시바</h3>
+            <p>실내 작업 공간 확보를 위한 아시바 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0288.jpg" aria-label="대형 실내 시스템비계 사진 확대">
+            <img src="images/img_0288.jpg" alt="무등ENG 대형 실내 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>대형 실내 시스템비계</h3>
+            <p>대형 실내 공간 작업을 위한 시스템비계 시공</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="images/img_0289.jpg" aria-label="안전망·외부 비계 작업 사진 확대">
+            <img src="images/img_0289.jpg" alt="무등ENG 안전망·외부 비계 작업" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>안전망·외부 비계 작업</h3>
+            <p>외부 작업을 위한 비계 및 안전망 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_01.jpg" aria-label="실내 계단 작업발판 설치 사진 확대">
+            <img src="work_01.jpg" alt="무등ENG 실내 계단 작업발판 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>실내 계단 작업발판 설치</h3>
+            <p>계단 및 층간 작업을 위한 비계·작업발판 구성</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_02.jpg" aria-label="전통건축물 주변 비계 설치 사진 확대">
+            <img src="work_02.jpg" alt="무등ENG 전통건축물 주변 비계 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>전통건축물 주변 비계 설치</h3>
+            <p>경사지 및 외부 보수 작업을 위한 비계 구성</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_03.jpg" aria-label="실내 계단 비계 설치 사진 확대">
+            <img src="work_03.jpg" alt="무등ENG 실내 계단 비계 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>실내 계단 비계 설치</h3>
+            <p>협소한 계단 공간 작업을 위한 비계 및 작업발판</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_04.jpg" aria-label="교육시설 외벽 시스템비계 사진 확대">
+            <img src="work_04.jpg" alt="무등ENG 교육시설 외벽 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>교육시설 외벽 시스템비계</h3>
+            <p>건물 외벽 보수 작업을 위한 대형 시스템비계 시공</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_05.jpg" aria-label="건축물 외벽 시스템비계 사진 확대">
+            <img src="work_05.jpg" alt="무등ENG 건축물 외벽 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>건축물 외벽 시스템비계</h3>
+            <p>외벽 작업을 위한 시스템비계 및 작업발판 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_06.jpg" aria-label="교육시설 외벽 시스템비계 사진 확대">
+            <img src="work_06.jpg" alt="무등ENG 교육시설 외벽 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>교육시설 외벽 시스템비계</h3>
+            <p>건물 전면 및 측면 외부 작업용 시스템비계 시공</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_07.jpg" aria-label="경사지 가설계단 설치 사진 확대">
+            <img src="work_07.jpg" alt="무등ENG 경사지 가설계단 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>경사지 가설계단 설치</h3>
+            <p>경사지 작업 동선 확보를 위한 가설계단 및 비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_08.jpg" aria-label="공공시설 외벽 시스템비계 사진 확대">
+            <img src="work_08.jpg" alt="무등ENG 공공시설 외벽 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>공공시설 외벽 시스템비계</h3>
+            <p>외벽 작업을 위한 시스템비계 설치 현장</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_09.jpg" aria-label="교량 하부 가설 작업발판 사진 확대">
+            <img src="work_09.jpg" alt="무등ENG 교량 하부 가설 작업발판" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>교량 하부 가설 작업발판</h3>
+            <p>교량 하부 작업을 위한 비계 및 가설 작업발판 구성</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_10.jpg" aria-label="실내 특수 작업비계 사진 확대">
+            <img src="work_10.jpg" alt="무등ENG 실내 특수 작업비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>실내 특수 작업비계</h3>
+            <p>대형 실내 공간 작업을 위한 다단 비계 및 안전망 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_11.jpg" aria-label="교육시설 외벽 시스템비계 사진 확대">
+            <img src="work_11.jpg" alt="무등ENG 교육시설 외벽 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>교육시설 외벽 시스템비계</h3>
+            <p>건물 내부 마당 측 외벽 보수용 시스템비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_12.jpg" aria-label="외벽 보수용 이동식 비계 사진 확대">
+            <img src="work_12.jpg" alt="무등ENG 외벽 보수용 이동식 비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>외벽 보수용 이동식 비계</h3>
+            <p>높은 외벽 작업을 위한 이동식 비계 및 작업발판</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_13.jpg" aria-label="주택 인접 가설 방진막 설치 사진 확대">
+            <img src="work_13.jpg" alt="무등ENG 주택 인접 가설 방진막 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>주택 인접 가설 방진막 설치</h3>
+            <p>주변 보호를 위한 가설 구조 및 방진막 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_14.jpg" aria-label="전통건축물 보수 비계 사진 확대">
+            <img src="work_14.jpg" alt="무등ENG 전통건축물 보수 비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>전통건축물 보수 비계</h3>
+            <p>한옥 및 전통건축물 보수 작업용 비계 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_15.jpg" aria-label="대형 실내 시스템비계 사진 확대">
+            <img src="work_15.jpg" alt="무등ENG 대형 실내 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>대형 실내 시스템비계</h3>
+            <p>높은 실내 공간 보수 작업을 위한 시스템비계 시공</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_16.jpg" aria-label="가설 방진막 및 비계 설치 사진 확대">
+            <img src="work_16.jpg" alt="무등ENG 가설 방진막 및 비계 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>가설 방진막 및 비계 설치</h3>
+            <p>외부 공사 구간 보호를 위한 비계와 방진막 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_17.jpg" aria-label="건축 현장 시스템비계 작업 사진 확대">
+            <img src="work_17.jpg" alt="무등ENG 건축 현장 시스템비계 작업" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>건축 현장 시스템비계 작업</h3>
+            <p>외벽 공사를 위한 시스템비계 설치 및 자재 작업</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_18.jpg" aria-label="실내 무대 작업비계 사진 확대">
+            <img src="work_18.jpg" alt="무등ENG 실내 무대 작업비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>실내 무대 작업비계</h3>
+            <p>무대 상부 작업을 위한 다단 비계 및 작업발판 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_19.jpg" aria-label="외부 가설 방진막 설치 사진 확대">
+            <img src="work_19.jpg" alt="무등ENG 외부 가설 방진막 설치" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>외부 가설 방진막 설치</h3>
+            <p>현장 경계 및 비산 방지를 위한 가설 구조 설치</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <button class="gallery-item" type="button" data-src="work_20.jpg" aria-label="건물 외벽 시스템비계 사진 확대">
+            <img src="work_20.jpg" alt="무등ENG 건물 외벽 시스템비계" loading="lazy">
+          </button>
+          <div class="gallery-info">
+            <h3>건물 외벽 시스템비계</h3>
+            <p>외부 보수 작업을 위한 시스템비계 및 작업발판 구성</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
