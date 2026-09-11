@@ -29,94 +29,7 @@
     "addressLocality": "북구",
     "addressRegion": "광주광역시",
     "addressCountry": "KR"
-  },
-  "areaServed": [
-    "광주광역시",
-    "전라남도"
-  ],
-  "knowsAbout": [
-    "광주 동바리",
-    "광주 시스템비계",
-    "광주 비계",
-    "광주 아시바",
-    "동바리 시공",
-    "시스템비계 시공",
-    "가설재"
-  ]
-}
-
-  const consultForm = document.getElementById('consult-form');
-  const consultResult = document.getElementById('consult-result');
-
-  function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.select();
-    ta.setSelectionRange(0, ta.value.length);
-    const ok = document.execCommand('copy');
-    ta.remove();
-    return ok;
   }
-
-  consultForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('consult-name').value.trim();
-    const phone = document.getElementById('consult-phone').value.trim();
-    const location = document.getElementById('consult-location').value.trim();
-    const type = document.getElementById('consult-type').value;
-    const message = document.getElementById('consult-message').value.trim();
-
-    if (!name || !phone || !type) {
-      consultResult.textContent = '이름/업체명, 연락처, 작업 종류를 입력해 주세요.';
-      consultResult.classList.add('show');
-      return;
-    }
-
-    const consultText =
-`[무등ENG 상담신청]
-이름/업체명: ${name}
-연락처: ${phone}
-현장 지역: ${location || '미입력'}
-작업 종류: ${type}
-작업 내용: ${message || '미입력'}`;
-
-    if (isMobileDevice()) {
-      window.location.href = 'sms:01077672317?body=' + encodeURIComponent(consultText);
-      return;
-    }
-
-    let copied = false;
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(consultText);
-        copied = true;
-      } else {
-        copied = fallbackCopy(consultText);
-      }
-    } catch (err) {
-      try { copied = fallbackCopy(consultText); } catch (_) {}
-    }
-
-    if (copied) {
-      consultResult.innerHTML =
-        '<strong>상담 내용이 복사되었습니다.</strong><br>' +
-        '010-7767-2317로 문자 전송하거나 전화 상담해 주세요.';
-    } else {
-      consultResult.innerHTML =
-        '<strong>상담 내용이 작성되었습니다.</strong><br>' +
-        '<textarea readonly style="width:100%;min-height:150px;margin-top:10px;padding:10px">' +
-        consultText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') +
-        '</textarea><br>내용을 복사해 010-7767-2317로 보내주세요.';
-    }
-    consultResult.classList.add('show');
-    consultResult.scrollIntoView({behavior:'smooth', block:'nearest'});
-  });
-
 </script>
   <style>
     :root {
@@ -186,6 +99,13 @@
     .gallery-info{padding:15px 16px 17px}
     .gallery-info h3{font-size:17px;line-height:1.4;margin:0 0 6px;color:var(--text)}
     .gallery-info p{font-size:14px;line-height:1.55;margin:0;color:var(--muted)}
+
+    .video-section{background:#0b1f3a;color:white}
+    .video-section .section-head h2{color:white}
+    .video-section .section-head p{color:#cbd5e1}
+    .video-section .kicker{color:#8fc0ff}
+    .video-frame{max-width:980px;margin:0 auto;border-radius:20px;overflow:hidden;background:#000;box-shadow:0 18px 55px rgba(0,0,0,.28)}
+    .video-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 
     .consult{background:var(--soft)}
     .consult-box{max-width:860px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
@@ -277,6 +197,7 @@
     <nav class="menu" aria-label="주요 메뉴">
       <a href="#about">회사소개</a>
       <a href="#services">사업분야</a>
+      <a href="#video">소개영상</a>
       <a href="#portfolio">시공사례</a>
       <a href="#consult">상담신청</a>
       <a href="#contact">문의하기</a>
@@ -331,6 +252,25 @@
           <div class="fact"><b>주요업무</b>시스템비계 · 동바리</div>
           <div class="fact"><b>기타업무</b>아시바 · 가설재</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="video" class="video-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">MUDEUNG ENG VIDEO</div>
+          <h2>무등ENG 소개영상</h2>
+        </div>
+        <p>시스템비계·아시바·가설재 시공 현장을 영상으로 확인해 보세요.</p>
+      </div>
+
+      <div class="video-frame">
+        <video controls playsinline preload="metadata" poster="intro-poster.jpg">
+          <source src="intro.mp4" type="video/mp4">
+          현재 브라우저에서는 영상을 재생할 수 없습니다.
+        </video>
       </div>
     </div>
   </section>
@@ -683,7 +623,7 @@
         <p>현장 정보를 남겨주시면 상담 내용을 간편하게 정리할 수 있습니다.</p>
       </div>
 
-      <form class="consult-box" id="consult-form">
+      <form class="consult-box" id="consult-form" action="javascript:void(0)" novalidate>
         <div class="consult-grid">
           <div class="field">
             <label for="consult-name">이름 / 업체명</label>
@@ -791,6 +731,71 @@
       }
     });
   });
+
+
+  const consultForm = document.getElementById('consult-form');
+  const consultResult = document.getElementById('consult-result');
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    const ok = document.execCommand('copy');
+    ta.remove();
+    return ok;
+  }
+
+  if (consultForm) {
+    consultForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('consult-name').value.trim();
+      const phone = document.getElementById('consult-phone').value.trim();
+      const location = document.getElementById('consult-location').value.trim();
+      const type = document.getElementById('consult-type').value;
+      const message = document.getElementById('consult-message').value.trim();
+
+      const consultText =
+`[무등ENG 상담신청]
+이름/업체명: ${name}
+연락처: ${phone}
+현장 지역: ${location || '미입력'}
+작업 종류: ${type}
+작업 내용: ${message || '미입력'}`;
+
+      if (isMobileDevice()) {
+        window.location.href = 'sms:01077672317?body=' + encodeURIComponent(consultText);
+        return;
+      }
+
+      let copied = false;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(consultText);
+          copied = true;
+        } else {
+          copied = fallbackCopy(consultText);
+        }
+      } catch (err) {
+        try { copied = fallbackCopy(consultText); } catch (_) {}
+      }
+
+      if (copied) {
+        consultResult.innerHTML =
+          '<strong>상담 내용이 복사되었습니다.</strong><br>010-7767-2317로 문자 전송하거나 전화 상담해 주세요.';
+      } else {
+        consultResult.textContent =
+          '상담 내용 복사가 차단되었습니다. 010-7767-2317로 전화 또는 문자 상담해 주세요.';
+      }
+      consultResult.classList.add('show');
+      consultResult.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+  }
 
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
